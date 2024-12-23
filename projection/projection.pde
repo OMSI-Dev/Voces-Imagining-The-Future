@@ -26,6 +26,7 @@ float x, y, rot; // Variables for image locations and rotations
 Submission newSub;
 
 void setup() { 
+  surface.setLocation(width, 0);
   fullScreen();
   //size(1080, 800);
   background(255);
