@@ -20,8 +20,8 @@ PFont font, buttonFont;
 
 int startTimer;
 
-private static final String submitStringEnglish = "Submitted!";
-private static final String submitStringSpanish = "¡Envió!";
+private static final String submitStringEnglish = "SUBMITTED!";
+private static final String submitStringSpanish = "¡ENVIADO!";
 boolean eng = true;
 boolean submitted = false;
 
@@ -55,10 +55,10 @@ final static int BORDER_Y = 150;
 int BORDER_WIDTH, BORDER_HEIGHT;
 
 void setup() {
-  //fullScreen();
-  size(1920, 1080);
+  fullScreen();
+  //size(1920, 1080);
   background(255);
-  //noCursor();
+  noCursor();
   smooth();
   
   // Starting the sender
@@ -131,14 +131,16 @@ void draw() {
   if(submitted) {
       if(eng) {
         submitNotificationEnglish();
+        submitExplanationEnglish();
         delay(100);
       }
       if(!eng) {
         submitNotificationSpanish();
+        submitExplanationSpanish();
         delay(100);
       }
       
-      if(millis() - startTimer > 3000) {
+      if(millis() - startTimer > 10000) {
         submitted = false;
         background(255);
       }
@@ -204,15 +206,15 @@ void resetHeader() {
 void headerTextEnglish() {
   stroke(ONYX_COLOR);
   textFont(buttonFont, 70);
-  text("What is your hope for the future of our planet?", (BORDER_X + (BORDER_WIDTH/2)), 50);
+  text("What is your hope for our planet and our future?", (BORDER_X + (BORDER_WIDTH/2)), 50);
   textFont(buttonFont, 27);
-  text("Write or draw your message here. Then press SUBMIT to add it to the animated mural projection!", (width/2 - 150), (BORDER_Y - 30) );
+  text("Write or draw your message here. Then press SUBMIT to add it to the animated mural projection!", (width/2 - 140), (BORDER_Y - 30) );
 }
 
 void headerTextSpanish() {
   stroke(ONYX_COLOR);
-  textFont(buttonFont, 70);
-  text("¿Cuál es tu esperanza para el futuro de nuestro planeta?", width/2, 50);
+  textFont(buttonFont, 60);
+  text("¿Cuál es tu esperanza para nuestro planeta y nuestro futuro?", width/2, 50);
   textFont(buttonFont, 27);
   text("Escribe o dibuja tu mensaje en la pantalla táctil. Luego presiona ENVIAR para agregarlo a la proyección del mural animado.", (width/2 + 17), (BORDER_Y - 30) );
 }
@@ -221,25 +223,39 @@ void headerTextSpanish() {
 void submitNotificationEnglish() {
   background(255);
   textFont(font);
-  int charX = 300;
+  int charX = 375;
   for(int i = 0; i < submitStringEnglish.length(); i++) {
     fill(OMSI_COLORS[colorIndex]);
-    text(submitStringEnglish.charAt(i), charX, (height/2 + random(-30, 30)));
+    text(submitStringEnglish.charAt(i), charX, (height/2.5 + random(-30, 30)));
     colorIndex = (colorIndex + 1) % OMSI_COLORS.length;
     charX += (width / submitStringEnglish.length()) - 60;
   }
+}
+
+// Explanation text in English after submission
+void submitExplanationEnglish() {
+  textFont(font, 30);
+  fill(OMSI_COLORS[3]);
+  text("Note: Your submission will be projected briefly before it disappears.\nOur team will review the content before adding it to the permanent mural.\n:)", width/2, (height - (height/4)) );
+}
+
+// Explanation text in Spanish after submission
+void submitExplanationSpanish() {
+  textFont(font, 30);
+  fill(OMSI_COLORS[3]);
+  text("Nota: Tu envío se proyectará por un momento antes de desaparecer.\nNuestro equipo lo revisará antes de agregarlo al mural permanente.\n:)", width/2, (height - (height/4)) );
 }
 
 // Show text "¡Envió!" with a little bounce
 void submitNotificationSpanish() {
   background(255);
   textFont(font);
-  int charX = 300;
+  int charX = 425;
   for(int i = 0; i < submitStringSpanish.length(); i++) {
     fill(OMSI_COLORS[colorIndex]);
-    text(submitStringSpanish.charAt(i), charX, (height/2 + random(-30, 30)));
+    text(submitStringSpanish.charAt(i), charX, (height/2.5 + random(-30, 30)));
     colorIndex = (colorIndex + 1) % OMSI_COLORS.length;
-    charX += (width / submitStringSpanish.length()) - 70;
+    charX += (width / submitStringSpanish.length()) - 75;
   }
 }
 
