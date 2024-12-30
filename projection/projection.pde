@@ -26,10 +26,11 @@ float x, y, rot; // Variables for image locations and rotations
 Submission newSub;
 
 void setup() { 
-  surface.setLocation(width, 0);
   fullScreen();
   //size(1080, 800);
   background(255);
+  smooth();
+  frameRate(30);
  
   jpg = new JPGEncoder();
   server = new Server(this, 5203);
@@ -46,11 +47,10 @@ void draw(){
   
   checkForIncomingImage();
   
-  if((millis() - startTimer < 30000)) {
+  if((millis() - startTimer < 100000)) {
     newSub.move();
     newSub.display();
   }
-  //image(maskWhite(img), width/2, height/2);
 }
 
 void checkForIncomingImage() {

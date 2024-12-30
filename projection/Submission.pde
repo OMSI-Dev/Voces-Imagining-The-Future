@@ -6,7 +6,8 @@
 
 // IF NOT FINDING PERMAMENT SUBMISSIONS !
 // Check path first
-String path = "/C:/OMSI/App/permanentSubmissions/";
+String path = "/C:/OMSI/App/touchscreenDraw/submissions/permanentSubmissions/";
+//String path = "C:/Users/crandall/Documents/GitHub/Voces-Imagining-The-Future/touchscreenDraw/submissions/permanentSubmissions/";
 String[] filenames = listFileNames(path);
 int IMG_NUM = filenames.length;
 PImage[] submissions = new PImage[IMG_NUM];
@@ -23,8 +24,8 @@ class Submission {
     r = tempR;
     x = random(width);
     y = random(height);
-    xspeed = random( - 5, 5);
-    yspeed = random( - 5, 5);
+    xspeed = random( - 4, 4);
+    yspeed = random( - 4, 4);
     img = image;
   }
 
@@ -44,7 +45,6 @@ class Submission {
 
   // Draw the ball
   void display() {
-    imageMode(CENTER);
     image(img, x, y, r, r);
   }
 }
@@ -59,6 +59,7 @@ void setupSubmissions() {
   for(int i = 0; i < permSubs.length; i++) {
     permSubs[i] = new Submission(random(200, 400), submissions[i]);
   }
+  imageMode(CENTER);
 }
 
 void updateSubmissions() {
