@@ -6,8 +6,8 @@
 
 // IF NOT FINDING PERMAMENT SUBMISSIONS !
 // Check path first
-String path = "/C:/OMSI/App/touchscreenDraw/submissions/permanentSubmissions/";
-//String path = "C:/Users/crandall/Documents/GitHub/Voces-Imagining-The-Future/touchscreenDraw/submissions/permanentSubmissions/";
+//String path = "/C:/OMSI/App/permanentSubmissions/";
+String path = "C:/Users/crandall/Documents/GitHub/Voces-Imagining-The-Future/touchscreenDraw/submissions/permanentSubmissions/";
 String[] filenames = listFileNames(path);
 int IMG_NUM = filenames.length;
 PImage[] submissions = new PImage[IMG_NUM];

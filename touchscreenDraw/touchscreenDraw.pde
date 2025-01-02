@@ -55,11 +55,10 @@ final static int BORDER_Y = 150;
 int BORDER_WIDTH, BORDER_HEIGHT;
 
 void setup() {
-  fullScreen();
-  //size(1920, 1080);
+  //fullScreen();
+  size(1920, 1080);
   background(255);
   noCursor();
-  smooth();
   
   // Starting the sender
   jpg = new JPGEncoder();

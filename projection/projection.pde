@@ -28,6 +28,7 @@ Submission newSub;
 void setup() { 
   fullScreen();
   //size(1080, 800);
+  //surface.setLocation(width, 0);
   background(255);
   smooth();
   frameRate(30);
