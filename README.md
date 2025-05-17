@@ -11,3 +11,5 @@ Then the person will need to move the approved drawings into the permanentSubmis
 If the files aren't loading for the projection, check the file path first to verify that the program is looking in the right folder.
 
 When starting: Projection sketch must be running before the touchscreen drawing sketch in order for the drawings to be recieved.
+
+[Photo of exhibit on the floor during testing.](https://github.com/user-attachments/assets/dd76edf3-9ac4-4800-b1c0-36225c22b3dc)
